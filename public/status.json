@@ -2,15 +2,14 @@
   "agent": "Adrian",
   "status": "working",
   "currentFocus": "Building status dashboard",
-  "lastUpdated": "2026-02-02T14:50:00Z",
+  "lastUpdated": "2026-02-02T15:10:00Z",
   "tasks": [
-    { "id": 1, "title": "Design minimal dark layout", "status": "done", "priority": "high" },
-    { "id": 2, "title": "Connect status.json feed", "status": "in-progress", "priority": "high" },
-    { "id": 3, "title": "Polish mobile responsiveness", "status": "todo", "priority": "medium" }
+    { "id": 1, "title": "Example backlog task", "status": "backlog", "priority": "medium" },
+    { "id": 2, "title": "Example in progress", "status": "in-progress", "priority": "high" },
+    { "id": 3, "title": "Example review task", "status": "review", "reviewBy": "josh", "priority": "high" },
+    { "id": 4, "title": "Example done task", "status": "done", "priority": "low" }
   ],
   "activity": [
-    { "timestamp": "2026-02-02T14:50:00Z", "message": "Started building dashboard" },
-    { "timestamp": "2026-02-02T15:05:00Z", "message": "Wired up auto-refresh" },
-    { "timestamp": "2026-02-02T15:18:00Z", "message": "Added task list styles" }
+    { "timestamp": "2026-02-02T15:10:00Z", "message": "Added kanban task view" }
   ]
 }

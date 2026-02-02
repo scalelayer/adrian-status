@@ -16,8 +16,9 @@ const statusStyles = {
 }
 
 const taskStyles = {
-  todo: 'bg-slate-500/15 text-slate-300 border-slate-400/30',
+  backlog: 'bg-slate-500/15 text-slate-300 border-slate-400/30',
   'in-progress': 'bg-sky-500/15 text-sky-300 border-sky-400/30',
+  review: 'bg-amber-500/15 text-amber-300 border-amber-400/30',
   done: 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30',
 }
 
@@ -27,11 +28,23 @@ const priorityStyles = {
   high: 'text-rose-300',
 }
 
+const TASK_COLUMNS = [
+  { key: 'backlog', title: 'Backlog' },
+  { key: 'in-progress', title: 'In Progress' },
+  { key: 'review', title: 'Review' },
+  { key: 'done', title: 'Done' },
+]
+
 const formatTimestamp = (value) => {
   if (!value) return '—'
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return value
   return date.toLocaleString()
+}
+
+const formatReviewer = (value) => {
+  if (!value) return ''
+  return value.charAt(0).toUpperCase() + value.slice(1)
 }
 
 function App() {
@@ -75,6 +88,21 @@ function App() {
     if (!data.status) return 'Idle'
     return data.status.charAt(0).toUpperCase() + data.status.slice(1)
   }, [data.status])
+
+  const tasksByStatus = useMemo(() => {
+    const groups = TASK_COLUMNS.reduce((acc, column) => {
+      acc[column.key] = []
+      return acc
+    }, {})
+
+    data.tasks?.forEach((task) => {
+      const key = task.status || 'backlog'
+      if (!groups[key]) groups[key] = []
+      groups[key].push(task)
+    })
+
+    return groups
+  }, [data.tasks])
 
   return (
     <div className="min-h-screen bg-slate-950 px-4 py-8 text-slate-100 sm:px-8">
@@ -126,35 +154,64 @@ function App() {
 
           <section className="rounded-2xl border border-white/5 bg-slate-900 p-6 shadow-lg shadow-black/20">
             <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-              Task List
+              Task Board
             </h2>
-            <div className="mt-4 space-y-3">
-              {data.tasks?.length ? (
-                data.tasks.map((task) => (
+            <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {TASK_COLUMNS.map((column) => {
+                const tasks = tasksByStatus[column.key] || []
+                return (
                   <div
-                    key={task.id}
-                    className="flex flex-col gap-2 rounded-xl border border-white/5 bg-slate-800/70 p-4"
+                    key={column.key}
+                    className="flex max-h-[420px] flex-col gap-3 rounded-2xl border border-white/5 bg-slate-950/40 p-4"
                   >
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h3 className="text-sm font-semibold text-white">{task.title}</h3>
-                      <span
-                        className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide ${
-                          taskStyles[task.status] || taskStyles.todo
-                        }`}
-                      >
-                        {task.status?.replace('-', ' ') || 'todo'}
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                        {column.title}
+                      </h3>
+                      <span className="rounded-full border border-white/10 bg-slate-900 px-2 py-0.5 text-xs text-slate-300">
+                        {tasks.length}
                       </span>
                     </div>
-                    {task.priority && (
-                      <p className={`text-xs uppercase tracking-[0.2em] ${priorityStyles[task.priority] || 'text-slate-400'}`}>
-                        Priority · {task.priority}
-                      </p>
-                    )}
+                    <div className="flex flex-1 flex-col gap-3 overflow-y-auto pr-1">
+                      {tasks.length ? (
+                        tasks.map((task) => (
+                          <div
+                            key={task.id}
+                            className="flex flex-col gap-2 rounded-xl border border-white/5 bg-slate-800/70 p-4"
+                          >
+                            <div className="flex items-start justify-between gap-2">
+                              <h4 className="text-sm font-semibold text-white">{task.title}</h4>
+                              {task.priority && (
+                                <span
+                                  className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] ${
+                                    priorityStyles[task.priority] || 'text-slate-400'
+                                  } border-white/10`}
+                                >
+                                  {task.priority}
+                                </span>
+                              )}
+                            </div>
+                            {column.key === 'review' && task.reviewBy && (
+                              <p className="text-xs uppercase tracking-[0.2em] text-amber-200/80">
+                                Review · {formatReviewer(task.reviewBy)}
+                              </p>
+                            )}
+                            <span
+                              className={`w-fit rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] ${
+                                taskStyles[task.status] || taskStyles.backlog
+                              }`}
+                            >
+                              {task.status?.replace('-', ' ') || 'backlog'}
+                            </span>
+                          </div>
+                        ))
+                      ) : (
+                        <p className="text-sm text-slate-500">No tasks.</p>
+                      )}
+                    </div>
                   </div>
-                ))
-              ) : (
-                <p className="text-sm text-slate-400">No tasks listed.</p>
-              )}
+                )
+              })}
             </div>
           </section>
         </div>
