@@ -77,9 +77,9 @@ function App() {
   }, [data.status])
 
   return (
-    <div className="min-h-screen bg-base-900 px-4 py-8 text-slate-100 sm:px-8">
+    <div className="min-h-screen bg-slate-950 px-4 py-8 text-slate-100 sm:px-8">
       <div className="mx-auto flex max-w-5xl flex-col gap-6">
-        <header className="flex flex-col gap-4 rounded-2xl border border-white/5 bg-base-800/80 p-6 shadow-lg shadow-black/20">
+        <header className="flex flex-col gap-4 rounded-2xl border border-white/5 bg-slate-900/80 p-6 shadow-lg shadow-black/20">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-slate-400">Adrian Status</p>
@@ -107,7 +107,7 @@ function App() {
         </header>
 
         <div className="grid gap-6 md:grid-cols-[1.2fr_1fr]">
-          <section className="rounded-2xl border border-white/5 bg-base-800 p-6 shadow-lg shadow-black/20">
+          <section className="rounded-2xl border border-white/5 bg-slate-900 p-6 shadow-lg shadow-black/20">
             <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
               Current Focus
             </h2>
@@ -124,7 +124,7 @@ function App() {
             )}
           </section>
 
-          <section className="rounded-2xl border border-white/5 bg-base-800 p-6 shadow-lg shadow-black/20">
+          <section className="rounded-2xl border border-white/5 bg-slate-900 p-6 shadow-lg shadow-black/20">
             <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
               Task List
             </h2>
@@ -133,7 +133,7 @@ function App() {
                 data.tasks.map((task) => (
                   <div
                     key={task.id}
-                    className="flex flex-col gap-2 rounded-xl border border-white/5 bg-base-700/70 p-4"
+                    className="flex flex-col gap-2 rounded-xl border border-white/5 bg-slate-800/70 p-4"
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <h3 className="text-sm font-semibold text-white">{task.title}</h3>
@@ -159,7 +159,7 @@ function App() {
           </section>
         </div>
 
-        <section className="rounded-2xl border border-white/5 bg-base-800 p-6 shadow-lg shadow-black/20">
+        <section className="rounded-2xl border border-white/5 bg-slate-900 p-6 shadow-lg shadow-black/20">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
               Recent Activity
@@ -170,7 +170,7 @@ function App() {
               data.activity.map((entry, index) => (
                 <div
                   key={`${entry.timestamp}-${index}`}
-                  className="flex flex-col gap-1 rounded-xl border border-white/5 bg-base-700/70 p-4 sm:flex-row sm:items-center sm:justify-between"
+                  className="flex flex-col gap-1 rounded-xl border border-white/5 bg-slate-800/70 p-4 sm:flex-row sm:items-center sm:justify-between"
                 >
                   <p className="text-sm text-white">{entry.message}</p>
                   <span className="text-xs text-slate-400">
