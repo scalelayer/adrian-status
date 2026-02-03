@@ -1,91 +1,26 @@
 {
   "agent": "Adrian",
   "status": "working",
-  "currentFocus": "Joe Espinosa call prep (Feb 6) + accountant search",
-  "lastUpdated": "2026-02-02T21:58:00Z",
+  "currentFocus": "Joe Espinosa call prep - lead gen partnership pitch",
+  "lastUpdated": "2026-02-03T14:22:00Z",
   "tasks": [
-    {
-      "id": 1,
-      "title": "Prep Joe Espinosa call - lead gen partnership pitch",
-      "status": "in-progress",
-      "priority": "high"
-    },
-    {
-      "id": 2,
-      "title": "Find new accountant for Quartz payout taxes",
-      "status": "backlog",
-      "priority": "high"
-    },
-    {
-      "id": 3,
-      "title": "Check A2P approval status (due ~Feb 3-4)",
-      "status": "backlog",
-      "priority": "high"
-    },
-    {
-      "id": 4,
-      "title": "Build coach/consultant target list",
-      "status": "backlog",
-      "priority": "medium"
-    },
-    {
-      "id": 5,
-      "title": "Draft outbound sequences for Instantly",
-      "status": "backlog",
-      "priority": "medium"
-    },
-    {
-      "id": 6,
-      "title": "Token optimization - add Kimi K2 properly",
-      "status": "backlog",
-      "priority": "low"
-    },
-    {
-      "id": 7,
-      "title": "Landlord response sent",
-      "status": "done",
-      "priority": "high"
-    },
-    {
-      "id": 8,
-      "title": "Security deposit - wire $15K to Tom",
-      "status": "done",
-      "reviewBy": "josh",
-      "priority": "high"
-    },
-    {
-      "id": 9,
-      "title": "Adrian Status dashboard v1",
-      "status": "done",
-      "priority": "medium"
-    },
-    {
-      "id": 10,
-      "title": "OpenAI Codex integration",
-      "status": "done",
-      "priority": "medium"
-    }
+    { "id": 1, "title": "Joe Espinosa one-pager - lead gen partnership pitch", "status": "in-progress", "priority": "high" },
+    { "id": 2, "title": "Find new accountant for Quartz payout taxes", "status": "backlog", "priority": "high" },
+    { "id": 3, "title": "Check A2P approval status", "status": "backlog", "priority": "high" },
+    { "id": 4, "title": "Build coach/consultant target list", "status": "backlog", "priority": "medium" },
+    { "id": 5, "title": "Draft outbound sequences for Instantly", "status": "backlog", "priority": "medium" },
+    { "id": 6, "title": "Set up morning brief automation", "status": "backlog", "priority": "medium" },
+    { "id": 7, "title": "Landlord situation resolved", "status": "done", "priority": "high" },
+    { "id": 8, "title": "Security deposit sent ($15K)", "status": "done", "priority": "high" },
+    { "id": 9, "title": "Adrian Status dashboard", "status": "done", "priority": "medium" },
+    { "id": 10, "title": "OpenAI Codex integration", "status": "done", "priority": "medium" },
+    { "id": 11, "title": "GHL access setup", "status": "done", "priority": "medium" },
+    { "id": 12, "title": "Email monitoring (10 min intervals)", "status": "done", "priority": "medium" }
   ],
   "activity": [
-    {
-      "timestamp": "2026-02-02T21:58:00Z",
-      "message": "Security deposit wired to Tom - $15K"
-    },
-    {
-      "timestamp": "2026-02-02T21:35:00Z",
-      "message": "Updated dashboard with real priorities"
-    },
-    {
-      "timestamp": "2026-02-02T21:11:00Z",
-      "message": "Deployed status dashboard to Vercel"
-    },
-    {
-      "timestamp": "2026-02-02T19:45:00Z",
-      "message": "Resolved landlord situation - Tom agreed no listing"
-    },
-    {
-      "timestamp": "2026-02-02T19:30:00Z",
-      "message": "Added OpenAI Codex for coding tasks"
-    }
+    { "timestamp": "2026-02-03T14:22:00Z", "message": "Starting Joe Espinosa call prep" },
+    { "timestamp": "2026-02-02T21:58:00Z", "message": "Security deposit wired to Tom - $15K" },
+    { "timestamp": "2026-02-02T21:11:00Z", "message": "Deployed status dashboard to Vercel" },
+    { "timestamp": "2026-02-02T20:45:00Z", "message": "GHL API access configured" }
   ]
 }
